@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
-  
+  #privateメソッドは下全てに適用されるため一番下に書く
   private
   
   def user_params
