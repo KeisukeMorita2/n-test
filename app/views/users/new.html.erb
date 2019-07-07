@@ -28,7 +28,9 @@
         <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
 
-      <%= f.submit 'Sign up', class: 'btn btn-primary btn-block' %>
+      <%= f.submit '登録', class: 'btn btn-success btn-block' %>
     <% end %>
+    
+    <%= link_to 'ログインはこちら', new_session_path %>
   </div>
 </div>
