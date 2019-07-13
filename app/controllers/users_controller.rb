@@ -10,6 +10,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:success] = 'ユーザーを削除しました。'
   end
 
   def create
@@ -30,7 +33,7 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
-    
+    #自身の情報だけを変更できる
     if current_user == @user
       if @user.update(user_params)
         flash[:success] = 'ユーザー情報を変更しました。'
