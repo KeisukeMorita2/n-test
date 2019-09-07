@@ -1,6 +1,16 @@
 class QuestionsController < ApplicationController
-  before_action :require_user_logged_in
+  before_action :require_user_logged_in, only: [:create, :destroy, :new]
   before_action :correct_user, only: [:destroy]
+  
+  def index
+    @questions = Question.all
+  end
+  
+  def new
+    if logged_in?
+      @question = current_user.questions.build
+    end
+  end
   
   def create
     @question = current_user.questions.build(question_params)
