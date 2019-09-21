@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
-    #自身の情報だけを変更できる
+    
     if current_user == @user
       if @user.update(user_params)
         flash[:success] = 'ユーザー情報を変更しました。'
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
-  #privateメソッドは下全てに適用されるため一番下に書く
+  
   private
   
   def user_params

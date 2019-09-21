@@ -16,11 +16,11 @@ class QuestionsController < ApplicationController
     @question = current_user.questions.build(question_params)
     if @question.save
       flash[:success] = '問題を作成しました。'
-      redirect_to root_url
+      redirect_to questions_url
     else
      @questions = current_user.questions.order(id: :desc).page(params[:page])
      flash.now[:danger] = '問題を作成できませんでした。'
-     render 'toppages/index'
+     render :new
     end
   end
 
