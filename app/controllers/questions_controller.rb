@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   before_action :correct_user, only: [:destroy]
   
   def index
-    @questions = Question.all
+    @questions = Question.all.order(id: :desc).page(params[:page]).per(10)
   end
   
   def new
@@ -12,11 +12,15 @@ class QuestionsController < ApplicationController
     end
   end
   
+  def show
+   @question =  Question.find(params[:id])
+  end
+  
   def create
     @question = current_user.questions.build(question_params)
     if @question.save
       flash[:success] = '問題を作成しました。'
-      redirect_to questions_url
+      redirect_to "/questions"
     else
      @questions = current_user.questions.order(id: :desc).page(params[:page])
      flash.now[:danger] = '問題を作成できませんでした。'
