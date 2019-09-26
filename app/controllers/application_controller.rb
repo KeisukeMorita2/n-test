@@ -9,4 +9,10 @@ class ApplicationController < ActionController::Base
       redirect_to new_session_url
     end
   end
+  
+  def counts(user)
+    @count_questions = user.questions.count
+    @count_followings = user.followings.count
+    @count_followers = user.followers.count
+  end
 end

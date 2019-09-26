@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:index, :show, :edit]
+  before_action :require_user_logged_in, only: [:index, :show, :edit, :followings, :followers]
   
   def index
     @users = User.order(id: :desc).page(params[:page]).per(10)

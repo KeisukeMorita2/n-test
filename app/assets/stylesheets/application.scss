@@ -5,6 +5,7 @@ header{
   margin: 0;
   padding: 0;
   height: 100vh;
+  background-color: aliceblue;
 }
 .jambotron{
   background: image-url("qes.jpg") center no-repeat;
@@ -24,4 +25,8 @@ footer{
   justify-content: center;
   align-items: center;
   display: flex;
+}
+.img{
+  background: image-url("library.jpg") center no-repeat;
+  height: 200px;
 }
