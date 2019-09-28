@@ -1,22 +1,11 @@
-<div class="row justify-content-between">
+<div class="row">
       <% users.each do |user| %>
-        <div class="col-md-6 my-1">
-          <div class="card img-thumnail shadow bg-light rounded">
-            <div class="row justify-content-between">
-              <div class="col-4 card-body">
-                test
-              </div>
-              <div class="col-8 card-body">
-                <h5 class="card-title">k</h5>
-                <div>
-                <%= link_to user.name, user_path(user) %></div>
-                <span class="text-muted"><%= render 'relationships/follow_button', user: user %></span>
-                
-              </div>
-            </div>
-          </div>
-        </div>
+  <div class="col-md-6">
+    <div class="user-bar d-flex align-items-center">
+        <%= link_to user.name, user_path(user) %>
+        <span class="text-muted"><%= render 'relationships/follow_button', user: user %></span>
+    </div>
+  </div>
       <% end %>
       <%= paginate users %>
-  </div>
 </div>
