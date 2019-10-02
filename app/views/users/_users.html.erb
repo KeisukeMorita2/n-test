@@ -1,8 +1,11 @@
-<div class="row">
+<div class="row justify-content-center">
       <% users.each do |user| %>
-  <div class="col-md-6">
-    <div class="user-bar d-flex align-items-center">
-        <%= link_to user.name, user_path(user) %>
+  <div class="col-md-5">
+    <div class="user-bar shadow">
+        <%= render 'avatar', user: user %>
+          <div class="size">
+            <%= link_to user.name, user_path(user) %>
+          </div>
         <span class="text-muted"><%= render 'relationships/follow_button', user: user %></span>
     </div>
   </div>

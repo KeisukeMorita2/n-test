@@ -31,7 +31,34 @@ footer{
   height: 200px;
 }
 .user-bar{
-  border: solid 1px;
+  margin: 5px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.user-page{
+  background-color: white;
   margin: 20px;
-  padding: 20px;
+}
+.user-show-image{
+  height: auto;
+  margin: auto;
+  margin-top: 10px;
+  display: flex;
+  max-width: 60%;
+}
+.question-image{
+  height: 100px;
+  width: 100px ;
+}
+.user-image{
+  height: 70px;
+  width: 70px;
+}
+.size{
+  font-size: 130%;
+}
+.user-show-nav{
+  text-align: center;
 }

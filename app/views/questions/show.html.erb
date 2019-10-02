@@ -1,3 +1,8 @@
 nmmmmmmm
 <div><%= @question.content %></div>
 <div><%= @question.answer %></div>
+<% if @question.image.attached? %>
+<%= image_tag @question.image, class: 'question-image' %>
+<% else %>
+<%= image_tag 'common.png', :size =>'50x50' %>
+<% end %>　  
