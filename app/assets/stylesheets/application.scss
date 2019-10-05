@@ -1,11 +1,14 @@
 header{
   border-bottom: 1px solid white;
 }
+body{
+  background-color: aliceblue;
+}
 .container-fluid{
   margin: 0;
   padding: 0;
-  height: 100vh;
-  background-color: aliceblue;
+  margin-bottom: 30px;
+
 }
 .jambotron{
   background: image-url("qes.jpg") center no-repeat;
@@ -26,10 +29,6 @@ footer{
   align-items: center;
   display: flex;
 }
-.img{
-  background: image-url("library.jpg") center no-repeat;
-  height: 200px;
-}
 .user-bar{
   margin: 5px;
   padding: 15px;
@@ -48,9 +47,12 @@ footer{
   display: flex;
   max-width: 60%;
 }
-.question-image{
-  height: 100px;
-  width: 100px ;
+.question-index{
+  height: 70px;
+  margin: auto;
+  margin-top: 10px;
+  display: flex;
+  max-width: 60%;
 }
 .user-image{
   height: 70px;
