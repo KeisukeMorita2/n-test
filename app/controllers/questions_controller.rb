@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :require_user_logged_in, only: [:create, :destroy, :new]
-  before_action :correct_user, only: [:destroy]
+  before_action :correct_user, only: [:destroy, :update]
   
   def index
     @questions = Question.all.order(id: :desc).page(params[:page]).per(10)
@@ -27,11 +27,28 @@ class QuestionsController < ApplicationController
      render :new
     end
   end
+  
+  def edit
+    @question = Question.find(params[:id])
+  end
+  
+  def update
+    @question = Question.find(params[:id])
+    
+    if @question.update(question_params)
+      flash[:success] = '問題を変更しました。'
+      redirect_to @question
+    else
+      flash.now[:danger] = '問題の変更に失敗しました。'
+      render :edit
+    end
+  end
+    
 
   def destroy
     @question.destroy
     flash[:success] = '問題を削除しました。'
-    redirect_back(fallback_location: root_path)
+    redirect_to @question
   end
   
   private

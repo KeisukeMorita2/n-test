@@ -7,6 +7,6 @@ Rails.application.routes.draw do
     end
   end
   resources :sessions, only: [:new, :create, :destroy]
-  resources :questions, only: [:create, :destroy, :index, :new, :show]
+  resources :questions, only: [:create, :destroy, :index, :new, :show, :edit, :update]
   resources :relationships, only: [:create, :destroy]
 end
