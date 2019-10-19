@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <% questions.each do |question| %>
+      <div class="col-md-12 my-2">
+        <div class="card img-thumnail shadow-lg bg-light rounded">
+          <div class="row justify-content-between">
+            <div class="col-4 card-body">
+              <% if question.image.attached? %>
+              <%= image_tag question.image, class: 'question-index rounded-circle' %>
+              <% else %>
+              <%= image_tag 'question.jpg', class: 'question-index rounded-circle' %>
+              <% end %>
+            </div>
+            <div class="col-8 card-body">
+              <h5 class="card-title">タイトル：<%= link_to question.title, question_path(question) %></h5>
+              <div class="float-left">
+              <%= link_to question.user.name, user_path(question.user) %><span class="test-muted">投稿日：<%= question.created_at.strftime('%Y/%m/%d') %></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <%= paginate questions %>
+  </div>
+</div>

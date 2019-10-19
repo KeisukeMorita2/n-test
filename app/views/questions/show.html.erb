@@ -1,3 +1,43 @@
-nmmmmmmm
-<div><%= @question.content %></div>
-<div><%= @question.answer %></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="q-page"> 
+        <div class="mb-3">
+          <% if @question.image.attached? %>
+          <%= image_tag @question.image, class: 'question-image' %>
+          <% else %>
+          <%= image_tag 'common.png', class: 'question-image' %>
+          <% end %>
+          <%= link_to @question.user.name, user_path(@question.user), class: "text-secondary ml-2" %>
+          <% if current_user == @question.user %>
+            <%= link_to "削除", @question, method: :delete, data: { confirm: "削除しますか？" }, class: 'text-secondary ml-2' %>
+            <%= link_to "編集", edit_question_path, class: 'text-secondary ml-2' %>
+          <% end %>
+          <span class="test-muted ml-3">投稿日：<%= @question.created_at.strftime('%Y/%m/%d') %></span>
+        </div>
+        <h2 class="q-title mb-3">
+          <%= @question.title %>
+        </h2>
+        <hr>
+        <div class="q-content mb-3">
+          <h2>問題</h2>
+          <%= @question.content %>
+        </div>
+        <hr>
+        <div class="q.answer mb-3">
+          <button>答え</button>
+          <h4><%= @question.answer %></h4>
+ 
+          <script>
+              $('h4').hide();
+
+              $('button').click(function() {
+                  $('h4').show();
+              })
+          </script>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
