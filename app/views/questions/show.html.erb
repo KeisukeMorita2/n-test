@@ -10,8 +10,8 @@
           <% end %>
           <%= link_to @question.user.name, user_path(@question.user), class: "text-secondary ml-2" %>
           <% if current_user == @question.user %>
-            <%= link_to "削除", @question, method: :delete, data: { confirm: "削除しますか？" }, class: 'text-secondary ml-2' %>
-            <%= link_to "編集", edit_question_path, class: 'text-secondary ml-2' %>
+            <%= link_to @question, method: :delete, data: { confirm: "削除しますか？" }, class: 'text-secondary ml-2' do %><i class="fas fa-trash-alt"></i>削除<% end %>
+            <%= link_to edit_question_path, class: 'text-secondary ml-2' do %><i class="fas fa-marker"></i>編集<% end %>
           <% end %>
           <span class="test-muted ml-3">投稿日：<%= @question.created_at.strftime('%Y/%m/%d') %></span>
         </div>
@@ -37,6 +37,8 @@
           </script>
          
         </div>
+        <hr>
+        <span class="text-muted"><%= render 'favorites/favorites_button', question: @question, user: @user %></span>
       </div>
     </div>
   </div>
