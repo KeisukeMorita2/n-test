@@ -1,4 +1,11 @@
 <div class="container">
+  <%= search_form_for @q, class: 'm-4' do |f| %>
+  <div class="form-group row">
+    <%= f.search_field :title_cont, class: 'col-sm-6 offset-sm-2 form-control', placeholder: "検索したいタイトルを入力" %>
+    <%= f.submit '検索', class: 'col-sm-2 btn btn-outline-primary' %>
+  </div>
+    
+  <% end %>
   <div class="row justify-content-between">
     <% questions.each do |question| %>
       <div class="col-md-6 my-1">

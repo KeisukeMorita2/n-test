@@ -8,18 +8,18 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto"></ul>
       <ul class="navbar-nav">
-          <li class="nav-item"><%= link_to 'ユーザ一覧', users_path, class: 'nav-link' %></li>
-          <li class="nav-item"><%= link_to '問題一覧', questions_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to users_path, class: 'nav-link' do %><i class="far fa-address-book"></i>ユーザ一覧<% end %></li>
+          <li class="nav-item"><%= link_to questions_path, class: 'nav-link' do %><i class="far fa-question-circle"></i>問題一覧<% end %></li>
         <% if logged_in? %>
-          <li class="nav-item"><%= link_to '問題作成', new_question_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to new_question_path, class: 'nav-link' do %><i class="fas fa-marker"></i>問題作成<% end %></li>
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>
             <ul class="dropdown-menu dropdown-menu-right">
-              <li class="dropdown-item"><%= link_to 'マイページ', user_path(current_user) %></li>
-              <li class="dropdown-item"><%= link_to 'ユーザー情報変更', edit_user_path(current_user) %></li>
+              <li class="dropdown-item"><%= link_to user_path(current_user) do %><i class="fas fa-male"></i>&thinsp;マイページ<% end %></li>
+              <li class="dropdown-item"><%= link_to edit_user_path(current_user) do %><i class="far fa-edit"></i>&thinsp;ユーザー情報変更<% end %></li>
               <li class="dropdown-divider"></li>
-              <li class="dropdown-item"><%= link_to 'ログアウト', session_path(current_user), method: :delete %></li>
-              <li class="dropdown-item"><%= link_to '退会', user_path(current_user), method: :delete %></li>
+              <li class="dropdown-item"><%= link_to session_path(current_user), method: :delete do %><i class="fas fa-sign-out-alt"></i>&thinsp;ログアウト<% end %></li>
+              <li class="dropdown-item"><%= link_to user_path(current_user), method: :delete do %><i class="fas fa-user-times"></i>&thinsp;退会<% end %></li>
             </ul>
           </li>
         <% else %>
