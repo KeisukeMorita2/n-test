@@ -3,7 +3,8 @@ class QuestionsController < ApplicationController
   before_action :correct_user, only: [:destroy, :update]
   
   def index
-    @questions = Question.all.order(id: :desc).page(params[:page]).per(10)
+    @q = Question.ransack(params[:q])
+    @questions = @q.result(distinct: true).order(id: :desc).page(params[:page]).per(10)
   end
   
   def new
